@@ -5,9 +5,14 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-        
+
     function getGraph(data,live){
-      d3.select('.graph').selectAll("svg").remove();
+      if(live){
+        d3.select('.liveGraph').selectAll("svg").remove();
+      }
+      else{
+        d3.select('.graph').selectAll("svg").remove();
+      }
       var margin = {top: 20, right: 50, bottom: 30, left: 50},
             width = 700 - margin.left - margin.right,
             height = 300 - margin.top - margin.bottom;
@@ -146,7 +151,9 @@
                         {title:"1Y"},
                         {title:"ALL"},
                     ]; 
-        $scope.datasub=[];  
+        $scope.datasub=[];
+        $scope.data=[];
+        $scope.rate=2;  
 
         $scope.getReport= function(key) {
           rksvService.GetStatus()
@@ -164,18 +171,19 @@
         socketService.on('error', function(eventData){
             console.error('Connection Error:',eventData);
         });
-        var getData = function() {
+
+        
             var CLIENT_ACKNOWLEDGEMENT = 1;
             var live= true;
             socketService.on('data', function (data,callback) {
-              callback(CLIENT_ACKNOWLEDGEMENT);
+              $timeout(function () {
+                callback(CLIENT_ACKNOWLEDGEMENT);
+              }, ($scope.rate*1000));
               $scope.datasub.push({data});
+              $scope.data.push(data);
+              getGraph($scope.data,live);
             });
-            $timeout(getData, 4000);
-            // getGraph($scope.data,live);
-        }
-
-        $timeout(getData, 4000);
+            
         
         
         $scope.sub= function(){

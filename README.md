@@ -3,23 +3,23 @@
 
 *###To clone git repository
 
-...**git clone**
+**git clone**
 
 *###To get all dependencies of server
 
-...**npm install**
+**npm install**
 
 *###To get all dependencies of client
 
-...**bower install**
+**bower install**
 
 *###To run server
 
-...**forever -w server.js**
+**forever -w server.js**
 
 *###To veiw in browser
 
-...**http://localhost:7777**
+**http://localhost:7777**
 
 
 

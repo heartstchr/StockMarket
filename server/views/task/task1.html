@@ -1,0 +1,88 @@
+<div class="container">
+	<div class="company">
+		<h1>CAKE</h1>
+		<h1>$349.12</h1>
+	</div>
+	<div class="clearfix"></div> 
+	<div class="graph">
+		
+	</div>
+	<div class="clearfix"></div> 
+	<div class="tab">
+		<uib-tabset>
+	      <uib-tab index="$index" ng-repeat="tab in tabs" select="getReport(tab.title)">
+	      	<uib-tab-heading>{{tab.title}}</uib-tab-heading>
+	      	<div class="labels">
+				<div>
+					<div>
+						<p>Day High</p>
+						<p>$351.96</p>
+					</div>
+					<div class="clearfix"></div> 
+					<div>
+						<p>Open</p>
+						<p>$85.67</p>
+					</div>
+					<div class="clearfix"></div> 
+					<div>
+						<p>Avg. Volume</p>
+						<p>56.6m</p>
+					</div>
+					<div class="clearfix"></div> 
+					<div>
+						<p>52wk High</p>
+						<p>$835.67</p>
+					</div>
+					<div class="clearfix"></div> 
+				</div>
+				<div>
+					<div>
+						<p>Day Low</p>
+						<p>$46.73</p>
+					</div>
+					<div class="clearfix"></div> 
+					<div>
+						<p>Today’s Close</p>
+						<p>$576.67</p>
+					</div>
+					<div class="clearfix"></div> 
+					<div>
+						<p>Volume</p>
+						<p>41.4m</p>
+					</div>
+					<div class="clearfix"></div> 
+					<div>
+						<p>52wk Low</p>
+						<p>$542.43</p>
+					</div>
+					<div class="clearfix"></div> 
+				</div>
+			</div>
+	      </uib-tab>
+	    </uib-tabset>
+	</div>
+	<div class="action">
+		<div>
+			<button class="btn">SELL</button>
+		</div>
+		<div>
+			<button class="btn">BUY</button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div class="socket">
+		<div>
+			<button class="btn " ng-click="sub()"><i class="fa fa-check"></i> Subscribe</button> 
+			<button class="btn " ng-click="unsub()"><i class="fa fa-close"></i> Unsubscribe</button>
+		</div>
+		<div ng-if=data>
+			<pre>
+				{{data}}
+			</pre>
+		</div>
+	</div>
+	
+</div>
+
+
+  

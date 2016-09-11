@@ -1,0 +1,200 @@
+/*all*/
+*{
+	margin:0;
+	box-sizing: border-box;
+	font-family: arial,sans-serif-light,sans-serif;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+button{
+  font: inherit;
+  color: inherit;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button::-moz-focus-inner{
+  padding: 0;
+  border: 0;
+}
+/*navigation*/
+nav{
+	padding: 10px;
+	background: #2dd393;
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+}
+nav a{
+	padding-left: 30px;
+	color:#fafafa;
+	font-size: 2em;
+}
+/*content*/
+.container{
+	margin: 10px;
+	padding: 10px 10px 24px;
+	-webkit-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+}
+.container,.container div{
+	height:auto;
+	width:auto;
+}
+
+/*company section*/
+.company h1,.labels>div ,.labels>div>div>p, .action div,.socket div{
+	display: block;
+	float:left;
+	width:50%;
+}
+
+.company h1{
+	color: #878787 ;
+}
+.company h1:last-child{
+	text-align: right;
+	padding-right: 20px;
+}
+.company h1:first-child{
+	text-align: left;
+	padding-left: 20px;
+}
+.company div ~ div{
+	float:right;
+	text-align: right;
+}
+.clearfix{
+	clear: both;
+}
+/*graph section*/
+.graph{
+	overflow-y: scroll;
+	min-height: 200px;
+	background: #f7f7f7;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  	stroke: #2dd393;
+    stroke-width: 1.3px;
+  	fill: rgba(45, 211, 147, 0.51);
+}
+
+/*tab section*/
+.tab li{
+	float: left;
+}
+.tab li a{
+	border-left: 1px solid rgba(0,0,0,0.2);
+	display: inline-block;
+	padding: 8px 11px;
+    color:#000000;
+}
+
+.tab a:first-child {
+    border-left: none;
+}
+
+/*lables section*/
+.labels>div>div>p, .action div{
+	padding: 8px;
+}
+.labels>div>div>p{
+	height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.labels>div>div>p:last-child{
+	text-align: right;
+}
+/*action button section*/
+.action div{
+	position: relative;
+	margin-bottom:20px; 
+}
+.action>div>button{
+	padding-left: 40px;
+    padding-right: 40px;
+	position: absolute;
+    left: 26%;
+	background-color: #2dd393;
+    color: #fafafa;
+}
+.action>div>button:hover{
+	border:1px solid #2dd393;
+	background: none;
+}
+.socket {
+	padding-top:40px;
+}
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.4;
+  text-align: center;
+  background-image: none;
+  border: 1px solid transparent;
+}
+
+.btn:focus,
+.btn:active:focus{
+  outline: none;
+  outline-offset: -2px;
+}
+.btn:hover,
+.btn:focus{
+  color: #333;
+  text-decoration: none;
+}
+.btn:active{
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+          box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    border-bottom: 1px solid red;
+}
+
+.chart__grid {
+  stroke: grey;
+  opacity: 0.3;
+}
+
+/*desktop section*/
+@media only screen  and (min-width : 1224px) {
+	.container{
+		margin-left: 120px;
+		width:58%;
+	}
+	.tab li a{
+		border-left: 1px solid rgba(0,0,0,0.2);
+		display: inline-block;
+		padding: 8px 16px;
+	    color:#000000;
+	}
+	.labels>div>div>p{
+	    padding: 0 20px 0 0;
+    	height: auto;
+	}
+	.labels>div>div>p:first-child{
+	    padding: 0 0 0 20px;
+    	height: auto;
+	}
+}

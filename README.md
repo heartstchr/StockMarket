@@ -2,18 +2,23 @@
 
 
 *###To clone git repository
+
 ...**git clone**
 
 *###To get all dependencies of server
+
 ...**npm install**
 
 *###To get all dependencies of client
+
 ...**bower install**
 
 *###To run server
+
 ...**forever -w server.js**
 
 *###To veiw in browser
+
 ...**http://localhost:7777**
 
 

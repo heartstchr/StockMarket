@@ -1,0 +1,22 @@
+{
+  "name": "rksv-git",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heartstchr/rksv.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heartstchr/rksv/issues"
+  },
+  "homepage": "https://github.com/heartstchr/rksv#readme",
+  "dependencies": {
+    "hapi": "^15.0.3"
+  }
+}

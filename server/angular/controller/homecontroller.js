@@ -179,7 +179,7 @@
               $timeout(function () {
                 callback(CLIENT_ACKNOWLEDGEMENT);
               }, ($scope.rate*1000));
-              $scope.datasub.push({data});
+              $scope.datasub.push({'data':data});
               $scope.data.push(data);
               getGraph($scope.data,live);
             });
@@ -187,7 +187,6 @@
         
         
         $scope.sub= function(){
-            console.log('subscription');
             socketService.emit('sub', {state:true});
         }
         $scope.unsub= function(){

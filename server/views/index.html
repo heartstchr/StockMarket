@@ -5,7 +5,12 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RKSV</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- main css file -->
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <!-- end of main css file -->
+    <style type="text/css">
+        *,input[type=number]{box-sizing:border-box}*{margin:0;font-family:arial,sans-serif-light,sans-serif}a{text-decoration:none}ul{padding:0}li{list-style:none}button{font:inherit;color:inherit;-webkit-appearance:button;cursor:pointer}button::-moz-focus-inner{padding:0;border:0}input[type=number]{padding:12px 20px;margin:8px 0;display:inline-block;border:1px solid #ccc;border-radius:4px}input[type=number]~span{color:grey}nav{padding:10px;background:#2dd393;-webkit-box-shadow:0 1px 4px 0 rgba(0,0,0,.2);box-shadow:0 1px 4px 0 rgba(0,0,0,.2)}nav a{padding-left:30px;color:#fafafa;font-size:2em}.container{margin:10px;padding:10px 10px 24px;-webkit-box-shadow:0 1px 4px 0 rgba(0,0,0,.2);box-shadow:0 1px 4px 0 rgba(0,0,0,.2)}.container,.container div{height:auto;width:auto}.action div,.company h1,.labels>div,.labels>div>div>p{display:block;float:left;width:50%}.company h1{font-size:1.4em;color:#878787}.company h1:last-child{text-align:right;padding-right:20px}.company h1:first-child{text-align:left;padding-left:20px}.company div~div,.labels>div>div>p:last-child{text-align:right}.company div~div{float:right}.clearfix{clear:both}.graph,.liveGraph{overflow-y:scroll;min-height:200px;background:#f7f7f7}.axis line,.axis path{fill:none;stroke:grey;opacity:.3;shape-rendering:crispEdges}.x.axis path{display:none}.line{stroke:#2dd393;stroke-width:1.3px;fill:rgba(45,211,147,.51)}.tab li{float:left}.tab li a{border-left:1px solid rgba(0,0,0,.2);display:inline-block;padding:8px 11px;color:#000}.tab a:first-child{border-left:none}.tab-content>.tab-pane{display:none}.tab-content>.active{display:block}.action div,.labels>div>div>p{padding:8px}.labels>div>div>p{height:50px;margin-top:10px;margin-bottom:10px}.btn,.socket div{text-align:center}.action div,.socket div{text-align:center;position:relative;margin-bottom:20px}.action>div>button,.socket>div>form>button{padding-left:40px;padding-right:40px;background-color:#2dd393;color:#fafafa}.data,.socket{padding:20px 0}.socket>div>form>button{width:160px;margin-bottom:10px}.action>div>button:hover,.socket>div>form>button:hover{border:1px solid #2dd393;background:0 0}.btn,.btn:active{background-image:none}.data{color:#878787;background-color:#f3f3f3;max-height:400px;overflow:scroll;border:1px solid #ccc;border-radius:4px}.btn{display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.4;border:1px solid transparent}.btn:active:focus,.btn:focus{outline:0;outline-offset:-2px}.btn:focus,.btn:hover{color:#333;text-decoration:none}.btn:active{outline:0;-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover{color:#555;cursor:default;background-color:#fff;border:1px solid #ddd;border-top-color:red;border-bottom-color:transparent}@media only screen and (min-width :600px){.tab li a{border-left:1px solid rgba(0,0,0,.2);display:inline-block;padding:8px 16px;color:#000}.labels>div>div>p{padding:0 20px 0 0;height:auto}.labels>div>div>p:first-child{padding:0 0 0 20px;height:auto}}@media only screen and (min-width :768px){.tab li a{border-left:1px solid rgba(0,0,0,.2);display:inline-block;padding:8px 16px;color:#000}.labels>div>div>p{padding:0 20px 0 0;height:auto}.labels>div>div>p:first-child{padding:0 0 0 20px;height:auto}}@media only screen and (min-width :1024px){.container{margin-left:120px;width:71%}}@media only screen and (min-width :1224px){.container{margin-left:120px;width:58%}}
+    </style>
     <link rel="prefetch" href="http://localhost:7777/views/task/task1.html"/>
     <link rel="prefetch" href="http://kaboom.rksv.net/api"/>
 </head>
@@ -21,10 +26,11 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" ></script>
+
     <script src="angular/app.js"></script>
     <script src="angular/controller/homecontroller.js"></script>
     <script src="angular/services/home.service.js"></script>
     <script src="angular/services/socket.service.js"></script>
-    <script src="js/main.js"></script>
+
 </body>
 </html>

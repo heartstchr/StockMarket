@@ -7,6 +7,9 @@
 a{
 	text-decoration: none;
 }
+ul{
+	padding: 0;
+}
 li{
 	list-style: none;
 }
@@ -106,7 +109,12 @@ nav a{
 .tab a:first-child {
     border-left: none;
 }
-
+.tab-content > .tab-pane {
+  display: none;
+}
+.tab-content > .active {
+  display: block;
+}
 /*lables section*/
 .labels>div>div>p, .action div{
 	padding: 8px;
@@ -137,7 +145,8 @@ nav a{
 	background: none;
 }
 .socket {
-	padding-top:40px;
+	padding: 40px 0 0 20px;
+    margin-bottom: 40px;
 }
 .btn {
   display: inline-block;
@@ -169,7 +178,12 @@ nav a{
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-    border-bottom: 1px solid red;
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top-color: red;
+    border-bottom-color: transparent;
 }
 
 .chart__grid {

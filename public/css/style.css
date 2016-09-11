@@ -23,6 +23,7 @@ button::-moz-focus-inner{
   padding: 0;
   border: 0;
 }
+
 /*navigation*/
 nav{
 	padding: 10px;
@@ -48,13 +49,14 @@ nav a{
 }
 
 /*company section*/
-.company h1,.labels>div ,.labels>div>div>p, .action div,.socket div{
+.company h1,.labels>div ,.labels>div>div>p, .action div{
 	display: block;
 	float:left;
 	width:50%;
 }
 
 .company h1{
+	font-size: 1.4em;
 	color: #878787 ;
 }
 .company h1:last-child{
@@ -73,7 +75,7 @@ nav a{
 	clear: both;
 }
 /*graph section*/
-.graph{
+.graph,.liveGraph{
 	overflow-y: scroll;
 	min-height: 200px;
 	background: #f7f7f7;
@@ -81,7 +83,8 @@ nav a{
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: grey;
+  opacity: 0.3;
   shape-rendering: crispEdges;
 }
 
@@ -94,7 +97,6 @@ nav a{
     stroke-width: 1.3px;
   	fill: rgba(45, 211, 147, 0.51);
 }
-
 /*tab section*/
 .tab li{
 	float: left;
@@ -128,15 +130,14 @@ nav a{
 	text-align: right;
 }
 /*action button section*/
-.action div{
+.action div,.socket div{
+	text-align:center;
 	position: relative;
 	margin-bottom:20px; 
 }
 .action>div>button{
 	padding-left: 40px;
     padding-right: 40px;
-	position: absolute;
-    left: 26%;
 	background-color: #2dd393;
     color: #fafafa;
 }
@@ -145,8 +146,16 @@ nav a{
 	background: none;
 }
 .socket {
-	padding: 40px 0 0 20px;
-    margin-bottom: 40px;
+	padding: 20px;
+}
+.socket div{
+	text-align: center;
+}
+.pre{
+	overflow-y: scroll;
+	border: 1px solid #c5c5c5;
+    border-radius: 4px;
+    background-color: #ececec;
 }
 .btn {
   display: inline-block;
@@ -186,17 +195,7 @@ nav a{
     border-bottom-color: transparent;
 }
 
-.chart__grid {
-  stroke: grey;
-  opacity: 0.3;
-}
-
-/*desktop section*/
-@media only screen  and (min-width : 1224px) {
-	.container{
-		margin-left: 120px;
-		width:58%;
-	}
+@media only screen and (min-width : 600px){
 	.tab li a{
 		border-left: 1px solid rgba(0,0,0,0.2);
 		display: inline-block;
@@ -210,5 +209,37 @@ nav a{
 	.labels>div>div>p:first-child{
 	    padding: 0 0 0 20px;
     	height: auto;
+	}
+}
+@media only screen and (min-width : 768px){
+	.tab li a{
+		border-left: 1px solid rgba(0,0,0,0.2);
+		display: inline-block;
+		padding: 8px 16px;
+	    color:#000000;
+	}
+	.labels>div>div>p{
+	    padding: 0 20px 0 0;
+    	height: auto;
+	}
+	.labels>div>div>p:first-child{
+	    padding: 0 0 0 20px;
+    	height: auto;
+	}
+}
+@media only screen and (min-width : 768px){
+
+}
+@media only screen  and (min-width : 1024px) {
+	.container{
+		margin-left: 120px;
+		width:71%;
+	}
+}
+/*desktop section*/
+@media only screen  and (min-width : 1224px) {
+	.container{
+		margin-left: 120px;
+		width:58%;
 	}
 }

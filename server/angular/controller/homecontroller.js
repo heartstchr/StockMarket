@@ -5,49 +5,8 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$injector=['$scope','rksvService','socketService'];
-    function HomeController($scope,rksvService,socketService) {
-        $scope.tabs=[
-                        {title:"1D"},
-                        {title:"1M"},
-                        {title:"3M"},
-                        {title:"YTD"},
-                        {title:"1Y"},
-                        {title:"ALL"},
-                    ];
-
-        socketService.on('error', function(eventData){
-            console.error('Connection Error:',eventData);
-        });
-
-        $scope.sub= function(){
-          $scope.data=true;
-          socketService.on('connect', function () {
-            socketService.emit('sub', {state:true});
-            socketService.on('data', function (data) {
-                console.log("s",data);
-            });
-          });
-        }
         
-
-        $scope.getReport= function(key) {
-          rksvService.GetStatus()
-              .then(function (data) {
-                  if(data.status){
-                    rksvService.GetAll()
-                      .then(function (data) {
-                        getGraph(data);
-                      });
-                  }
-                  else{
-
-                  }
-              });
-              
-        }
-    }
-    function getGraph(data){
+    function getGraph(data,live){
       d3.select('.graph').selectAll("svg").remove();
       var margin = {top: 20, right: 50, bottom: 30, left: 50},
             width = 700 - margin.left - margin.right,
@@ -107,10 +66,17 @@
           .orient('left')
           .ticks(4);
       };
+      if(live){
+          var svg = d3.select('.liveGraph').append("svg")
+              .attr("width", width + margin.left + margin.right)
+              .attr("height", height + margin.top + margin.bottom);
+      }else{
+          var svg = d3.select('.graph').append("svg")
+              .attr("width", width + margin.left + margin.right)
+              .attr("height", height + margin.top + margin.bottom);
+      }
+      
 
-      var svg = d3.select('.graph').append("svg")
-          .attr("width", width + margin.left + margin.right)
-          .attr("height", height + margin.top + margin.bottom);
       var focus = svg.append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -147,11 +113,11 @@
         svg.append("g")       
           .attr("class", "y axis")  
           .attr("transform", "translate(" + (width+margin.left) + " ,"+(margin.top)+")") 
-          .style("fill", "red")   
+          .style("fill", "#f97f7f")   
           .call(yAxisRight)
         .append("text")
             .attr("transform", "rotate(-90)")
-            .attr("y", -12)
+            .attr("y", -18)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
             .text("Open Price $");
@@ -169,5 +135,57 @@
             .attr("d", line2(data));
 
     }
+
+    HomeController.$injector=['$scope','$timeout','rksvService','socketService'];
+    function HomeController($scope,$timeout,rksvService,socketService) {
+        $scope.tabs=[
+                        {title:"1D"},
+                        {title:"1M"},
+                        {title:"3M"},
+                        {title:"YTD"},
+                        {title:"1Y"},
+                        {title:"ALL"},
+                    ]; 
+        $scope.datasub=[];  
+
+        $scope.getReport= function(key) {
+          rksvService.GetStatus()
+              .then(function (data) {
+                  if(data.status== 'OK'){
+                    rksvService.GetAll()
+                      .then(function (data) {
+                        getGraph(data);
+                      });
+                  }
+                  else{
+                  }
+              });
+        }
+        socketService.on('error', function(eventData){
+            console.error('Connection Error:',eventData);
+        });
+        var getData = function() {
+            var CLIENT_ACKNOWLEDGEMENT = 1;
+            var live= true;
+            socketService.on('data', function (data,callback) {
+              callback(CLIENT_ACKNOWLEDGEMENT);
+              $scope.datasub.push({data});
+            });
+            $timeout(getData, 4000);
+            // getGraph($scope.data,live);
+        }
+
+        $timeout(getData, 4000);
+        
+        
+        $scope.sub= function(){
+            console.log('subscription');
+            socketService.emit('sub', {state:true});
+        }
+        $scope.unsub= function(){
+            socketService.emit('unsub', {state:false});
+        }
+    }
+    
 
 })();

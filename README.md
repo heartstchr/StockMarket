@@ -1,23 +1,23 @@
 #Steps to follow
 
 
-*###To clone git repository
+*To clone git repository
 
 **git clone**
 
-*###To get all dependencies of server
+*To get all dependencies of server
 
 **npm install**
 
-*###To get all dependencies of client
+*To get all dependencies of client
 
 **bower install**
 
-*###To run server
+*To run server
 
 **forever -w server.js**
 
-*###To veiw in browser
+*To veiw in browser
 
 **http://localhost:7777**
 

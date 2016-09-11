@@ -23,7 +23,17 @@ button::-moz-focus-inner{
   padding: 0;
   border: 0;
 }
-
+input[type=number]{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=number]~span{
+	color: grey;
+}
 /*navigation*/
 nav{
 	padding: 10px;
@@ -135,27 +145,38 @@ nav a{
 	position: relative;
 	margin-bottom:20px; 
 }
-.action>div>button{
+.action>div>button,.socket>div>form>button{
 	padding-left: 40px;
     padding-right: 40px;
 	background-color: #2dd393;
     color: #fafafa;
 }
-.action>div>button:hover{
+.socket>div>form>button{
+	width: 160px;
+    margin-bottom: 10px;
+}
+.action>div>button:hover, .socket>div>form>button:hover{
 	border:1px solid #2dd393;
 	background: none;
 }
 .socket {
-	padding: 20px;
+	padding: 20px 0;
 }
 .socket div{
 	text-align: center;
 }
-.pre{
-	overflow-y: scroll;
-	border: 1px solid #c5c5c5;
+/*.frameRate{
+    display: inline-block;
+    padding: 10px;
+}*/
+.data{
+	color: #878787;
+	background-color: #f3f3f3;
+    max-height: 400px;
+    overflow: scroll;
+    border: 1px solid #cccccc;
     border-radius: 4px;
-    background-color: #ececec;
+    padding: 20px 0;
 }
 .btn {
   display: inline-block;

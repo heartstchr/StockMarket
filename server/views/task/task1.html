@@ -78,10 +78,17 @@
 	</div>
 	<div class="socket">
 		<div>
-			<button class="btn " ng-click="sub()">Subscribe</button> 
-			<button class="btn " ng-click="unsub()">Unsubscribe</button>
+			<form name="frame" role="form" >
+				<div class="input-group">
+					<input type="number" name="rate" min="2" ng-model="rate" value="2" aria-label="Set Delay time"/>
+				  	<span class="input-group-addon">sec</span>
+				</div>
+				<span ng-show="frame.rate.$dirty && frame.rate.$error.required" >Date rate more than 2</span>
+				<button class="btn " ng-click="sub(rate)" ng-disabled="frame.$invalid" >Subscribe</button> 
+				<button class="btn " ng-click="unsub()">Unsubscribe</button>
+			</form>
 		</div>
-		<div ng-if=datasub[0]>
+		<div ng-if=datasub[0] class="data">
 				{{datasub}}
 		</div>
 	</div>
